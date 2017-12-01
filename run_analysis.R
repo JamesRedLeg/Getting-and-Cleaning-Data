@@ -85,5 +85,5 @@ allData$activity <- activityLabels[allData$activity, 2]
 cleanedupData <- ddply(allData, .(subject, activity), function(x) colMeans(x[, 1:66])) 
  
 
-write.table(cleanedupData, "tidy.txt", row.name=FALSE) 
+write.table(cleanedupData, "tidy_data.txt", row.name=FALSE) 
                
