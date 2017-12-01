@@ -1,0 +1,228 @@
+---
+title: "Codebook for Wearable Technology Study"
+author: "James C. Birk"
+date: "November 30, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Getting and Cleaning Data Project
+
+The data set that this code book pertains to is located in the tidy_data.txt file of this repository.
+
+See the README.md file of this repository for background information on this data set. This data has been merged, cleaned, and filtered from a larger data set for the purposes of analysis. 
+
+
+
+## Subsets 
+The .txt files are all found in the the compressed zip file of the original data set. 
+
+1.The values of 'Activity' consist of data from 'y_train.txt' and 'y_test.txt' The types/names of 'Activity' can be found at 'activity_labels.txt'
+
+
+2.The values of 'Subject' consist of data from 'subject_train.txt' and 'subject_test.txt'
+
+
+3.The values of 'Features' consist of data from 'X_train.txt' and 'X_test.txt'. The names of the variables 'Features' can be found at 'features.txt'
+
+
+## Sources
+The source data is divided in the following way:
+
+.'features.txt': List of all the names of features (variables).
+
+
+.'activity_labels.txt': Links the class labels with their activity name.
+
+
+.'X_train.txt': Training set.
+
+
+.'y_train.txt': Training labels.
+
+
+.'X_test.txt': Test set.
+
+
+.'y_test.txt': Test labels.
+
+
+.'subject_train.txt' and 'subject_test.txt': Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30.
+
+
+A full description of the data used in this project can be found at The UCI Machine Learning Repository
+
+
+## Follow These Steps to Create Your Tidy Data (and get points for the assignment (Transformations))
+The steps to create Tidy data are registered on the script run_analysis.R and will be described here.
+
+.Step 1: Merge the training and test sets to create one data set (row binding)
+Features data came from (X) (train and test); Activity data came from (Y) (train and test)
+and Subject data came from subject_train and subject_test. Merge Features,Activity, and Subject into 
+one data set called: allData.
+
+.Step 2: Use the features.txt file to extract the columns with standard deviations and means; bind them to allData.
+
+.Step 3: Place descriptive labels on the activities in allData using the activity_labels.txt file.
+
+.Step 4: Appropriately label the data set with descriptive variable names. 
+
+.Step 5: Create a Tidy data set with only the average of each variable for each activity of each subject. I used ddply.  
+
+
+## Variables in the tidy set (all are stored as type numeric 'double' unless otherwise noted)
+**TimeBodyAccelerotmeter Variables**
+
+.timeBodyAccelerometer-mean()-X  
+.timeBodyAccelerometer-std()-X  
+.timeBodyAccelerometer-mean()-Y          
+.timeBodyAccelerometer-std()-Y  
+.timeBodyAccelerometer-mean()-Z                  
+.timeBodyAccelerometer-std()-Z  
+
+*********************************************************************************************************
+
+**TimeGravityAccelometer variables**  
+
+timeGravityAccelerometer-mean()-X             
+timeGravityAccelerometer-std()-X  
+timeGravityAccelerometer-mean()-Y             
+timeGravityAccelerometer-std()-Y  
+timeGravityAccelerometer-mean()-Z             
+timeGravityAccelerometer-std()-Z  
+
+*********************************************************************************************************
+
+**TimeBodyAccelerometerJerk variables**
+
+timeBodyAccelerometerJerk-mean()-X            
+timeBodyAccelerometerJerk-std()-X  
+timeBodyAccelerometerJerk-mean()-Y            
+timeBodyAccelerometerJerk-std()-Y  
+timeBodyAccelerometerJerk-mean()-Z            
+timeBodyAccelerometerJerk-std()-Z  
+
+*********************************************************************************************************
+**TimeBodyGyroscope variables**
+
+timeBodyGyroscope-mean()-X                    
+timeBodyGyroscope-std()-X  
+timeBodyGyroscope-mean()-Y                    
+timeBodyGyroscope-std()-Y  
+timeBodyGyroscope-mean()-Z                    
+timeBodyGyroscope-std()-Z  
+
+*********************************************************************************************************
+
+**TimeBodyGyroscopeJerk variables**
+
+timeBodyGyroscopeJerk-mean()-X                
+timeBodyGyroscopeJerk-std()-X   
+timeBodyGyroscopeJerk-mean()-Y    
+timeBodyGyroscopeJerk-std()-Y  
+timeBodyGyroscopeJerk-mean()-Z                 
+timeBodyGyroscopeJerk-std()-Z  
+
+*********************************************************************************************************
+
+**TimeBodyAccelerometerMagnitude variables**
+
+timeBodyAccelerometerMagnitude-mean()         
+timeBodyAccelerometerMagnitude-std()  
+timeGravityAccelerometerMagnitude-mean()        
+timeGravityAccelerometerMagnitude-std()  
+timeBodyAccelerometerJerkMagnitude-mean()     
+timeBodyAccelerometerJerkMagnitude-std()  
+
+*********************************************************************************************************
+
+**TimeBodyGyroscopeMagnitude variables**
+
+timeBodyGyroscopeMagnitude-mean()             
+timeBodyGyroscopeMagnitude-std()  
+timeBodyGyroscopeJerkMagnitude-mean()         
+timeBodyGyroscopeJerkMagnitude-std()  
+
+*********************************************************************************************************
+
+**FrequencyBodyAccelerometer variables**
+
+frequencyBodyAccelerometer-mean()-X           
+frequencyBodyAccelerometer-std()-X  
+frequencyBodyAccelerometer-mean()-Y    
+frequencyBodyAccelerometer-std()-Y  
+frequencyBodyAccelerometer-mean()-Z  
+frequencyBodyAccelerometer-std()-Z  
+
+*********************************************************************************************************
+
+**frequencyBodyAccelerometerJerk variables**
+
+frequencyBodyAccelerometerJerk-mean()-X       
+frequencyBodyAccelerometerJerk-std()-X  
+frequencyBodyAccelerometerJerk-mean()-Y  
+frequencyBodyAccelerometerJerk-std()-Y  
+frequencyBodyAccelerometerJerk-mean()-Z  
+frequencyBodyAccelerometerJerk-std()-Z  
+
+*********************************************************************************************************
+
+**frequencyBodyGyroscope variables**
+
+frequencyBodyGyroscope-mean()-X               
+frequencyBodyGyroscope-std()-X  
+frequencyBodyGyroscope-mean()-Y  
+frequencyBodyGyroscope-std()-Y  
+frequencyBodyGyroscope-mean()-Z                
+frequencyBodyGyroscope-std()-Z  
+
+*********************************************************************************************************
+
+**frequencyBodyAcceleromerMagnitude variables**
+
+frequencyBodyAccelerometerMagnitude-mean()    
+frequencyBodyAccelerometerMagnitude-std()  
+
+*********************************************************************************************************
+
+**frequencyBodyAccelerometerJerkMagnitude variables**
+
+frequencyBodyAccelerometerJerkMagnitude-mean()  
+frequencyBodyAccelerometerJerkMagnitude-std()  
+
+*********************************************************************************************************
+
+**frequencyBodyGyroscopeMagnitude variables**  
+
+frequencyBodyGyroscopeMagnitude-mean()        
+frequencyBodyGyroscopeMagnitude-std()  
+frequencyBodyGyroscopeJerkMagnitude-mean()    
+frequencyBodyGyroscopeJerkMagnitude-std()  
+
+*********************************************************************************************************
+
+**Other variables- Identifiers**
+subject (stored as integer 1-30)
+
+activity (stored as an integer factor with 6 levels)
+
+*********************************************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

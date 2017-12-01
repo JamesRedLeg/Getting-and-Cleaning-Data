@@ -1,0 +1,39 @@
+---
+title: "README"
+author: "James C. Birk"
+date: "December 1, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Coursera __Getting and Cleaning Data__ course project
+This repository contains files relating to a study of wearable fitness technology. It contains the 
+following files:  
+**README.md** a help file which provides an overview for the project  
+**tidy_data.txt** -- this is the end product of executing the directed analysis  
+**codeBook.md** -- this file explains the contents of the data set in terms data, variables, and transformations.  
+**run_analysis.R**-- this is the R script used to create the tidy set from the much larger set of data.
+
+
+## So what are we trying to do?
+We are starting with the Human Activity Recognition Using Smartphones Data Set and merging the training and testing data and then capturing the mean and standard deviation for each measurement.  
+
+Running run_analysis.R will create the data set.  It acts upon the original data set and transforms it to produce a tidy data set which is easier to work with. Follow these steps:
+
+Download and unzip source data if it doesn't exist.
+Read data.
+Merge the training and the test sets to create one data set.
+Extract only the measurements on the mean and standard deviation for each measurement.
+Use descriptive activity names to name the activities in the data set.
+Appropriately label the data set with descriptive variable names.
+Create a second, independent tidy set with the average of each variable for each activity and each subject.
+Write the data set to the tidy_data.txt file.
+
+You will needthe following R packages: plyr and dplyr (install plyr first)
+
+Thanks for reading! Check out the codebook.md for more detail!
+
+
